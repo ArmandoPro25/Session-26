@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}"></title>
+</head>
+<body>
+    <h1 th:text="${title}"></h1>
+    <form action="#" th:action="@{/advisory/save}" th:object="${advisory}" method="post">
+        <input type="hidden" th:field="*{id}"/>
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" th:field="*{subject}"/><br/>
+        <label for="professor">Professor:</label>
+        <input type="text" id="professor" th:field="*{professor}"/><br/>
+        <label for="location">Location:</label>
+        <input type="text" id="location" th:field="*{location}"/><br/>
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>

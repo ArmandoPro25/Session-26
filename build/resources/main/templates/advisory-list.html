@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}"></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h1 th:text="${title}"></h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Subject</th>
+                    <th>Professor</th>
+                    <th>Location</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="advisory : ${advisories}">
+                    <td th:text="${advisory.id}"></td>
+                    <td th:text="${advisory.subject}"></td>
+                    <td th:text="${advisory.professor}"></td>
+                    <td th:text="${advisory.location}"></td>
+                    <td th:text="${#dates.format(advisory.date, 'dd-MM-yyyy HH:mm')}"></td>
+                    <td>
+                        <a class="btn btn-primary btn-xs" th:href="@{/advisory/edit/{id}(id=${advisory.id})}">Edit</a>
+                        <a class="btn btn-danger btn-xs" th:href="@{/advisory/delete/{id}(id=${advisory.id})}">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <a class="btn btn-success btn-xs" href="/advisory/form">Create New Advisory</a>
+        <a class="btn btn-primary" href="/">Return to Homepage</a>
+    </div>
+</body>
+</html>
+

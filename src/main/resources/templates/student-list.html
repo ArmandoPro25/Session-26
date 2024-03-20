@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Estudiantes</title>
+</head>
+<body>
+    <h1>Listado de Estudiantes</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Promedio</th>
+            <th>Fecha de Registro</th>
+        </tr>
+        <th:block th:each="student : ${students}">
+            <tr>
+                <td th:text="${student.id}"></td>
+                <td th:text="${student.name}"></td>
+                <td th:text="${student.lastName}"></td>
+                <td th:text="${student.average}"></td>
+                <td th:text="${student.recordAt}"></td>
+            </tr>
+        </th:block>
+    </table>
+</body>
+</html>

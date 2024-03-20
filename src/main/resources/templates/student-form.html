@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Estudiantes</title>
+</head>
+<body>
+    <h1>Formulario de Estudiantes</h1>
+    <form action="#" th:action="@{/form}" th:object="${student}" method="post">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" th:field="*{name}" required><br>
+        <label for="middleName">Segundo Nombre:</label>
+        <input type="text" id="middleName" th:field="*{middleName}"><br>
+        <label for="lastName">Apellido:</label>
+        <input type="text" id="lastName" th:field="*{lastName}" required><br>
+        <label for="average">Promedio:</label>
+        <input type="number" id="average" th:field="*{average}" step="0.1" min="0" max="10" required><br>
+        <input type="submit" value="Guardar">
+    </form>
+</body>
+</html>
